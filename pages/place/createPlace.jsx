@@ -1,0 +1,334 @@
+import { useRouter } from "next/dist/client/router";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { placeAPI } from "../api/place/place";
+import { uploadAPI } from "../api/upload/upload";
+import { Form, Image } from "react-bootstrap";
+import { searchAPI } from "../api/search/search";
+
+const CreatePlace = () => {
+  const Router = useRouter();
+  const initPlace = { name: "", diachi: "", thongtinthem: "" };
+  const [adminPlace, setAdminPlace] = useState(initPlace);
+  const { name, diachi, thongtinthem } = adminPlace;
+  const [inputImage, setInputImage] = useState();
+  const [image, setImage] = useState("");
+  const [status, setStatus] = useState("0");
+  const [tinh, setTinh] = useState([]);
+  const [idTinh, setIdTinh] = useState("");
+  const [nameTinh, setNameTinh] = useState("");
+  const [huyen, setHuyen] = useState([]);
+  const [idHuyen, setIdHuyen] = useState("");
+  const [nameHuyen, setNameHuyen] = useState("");
+  const [xa, setXa] = useState([]);
+  const [idXa, setIdXa] = useState("");
+  const [nameXa, setNameXa] = useState("");
+  const [search, setSearch] = useState("");
+  const [image1, setImage1] = useState("");
+  const [inputImage1, setInputImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [inputImage2, setInputImage2] = useState("");
+
+  const handleChangePlace = (e) => {
+    const { name, value } = e.target;
+    setAdminPlace({ ...adminPlace, [name]: value });
+  };
+
+  const handleChangeImage = (e) => {
+    // console.log(e.target.files[0])
+    setInputImage(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    uploadAPI
+      .uploadAvatarAPI(inputImage)
+      .then((res) => {
+        // console.log(res.data.link)
+        setImage(res.data.link);
+      })
+      .catch((err) => console.log(err));
+  }, [inputImage]);
+
+  const handleChangeImage1 = (e) => {
+    setInputImage1(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    uploadAPI
+      .uploadAvatarAPI(inputImage1)
+      .then((res) => {
+        console.log(res.data.link);
+        setImage1(res.data.link);
+      })
+      .catch((err) => console.log(err));
+  }, [inputImage1]);
+
+  const handleChangeImage2 = (e) => {
+    setInputImage2(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    uploadAPI
+      .uploadAvatarAPI(inputImage2)
+      .then((res) => {
+        console.log(res.data.link);
+        setImage2(res.data.link);
+      })
+      .catch((err) => console.log(err));
+  }, [inputImage2]);
+
+  const handleChangeStatus = (e) => {
+    if (status === "0") {
+      setStatus("1");
+    } else {
+      setStatus("0");
+    }
+  };
+
+  useEffect(() => {
+    searchAPI
+      .getTinh()
+      .then((res) => {
+        // console.log(res)
+        setTinh(res.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleChangeTinh = (e) => {
+    // console.log(e.target.value)
+    setIdTinh(e.target.value);
+  };
+
+  useEffect(() => {
+    searchAPI
+      .getHuyen(idTinh)
+      .then((res) => {
+        setHuyen(res.data.results);
+      })
+      .catch((err) => console.log(err));
+
+    searchAPI
+      .getTinhById(idTinh)
+      .then((res) => {
+        // console.log(res)
+        setNameTinh(res.data.name);
+      })
+      .catch((err) => console.log(err));
+  }, [idTinh]);
+
+  const handleChangeHuyen = (e) => {
+    setIdHuyen(e.target.value);
+  };
+
+  useEffect(() => {
+    searchAPI
+      .getXa(idHuyen)
+      .then((res) => {
+        setXa(res.data.results);
+      })
+      .catch((err) => console.log(err));
+
+    searchAPI
+      .getHuyenById(idHuyen)
+      .then((res) => {
+        // console.log(res)
+        setNameHuyen(res.data.name);
+      })
+      .catch((err) => console.log(err));
+  }, [idHuyen]);
+
+  const handleChangeXa = (e) => {
+    setIdXa(e.target.value);
+  };
+
+  useEffect(() => {
+    searchAPI
+      .getXaById(idXa)
+      .then((res) => {
+        // console.log(res)
+        setNameXa(res.data.name);
+      })
+      .catch((err) => console.log(err));
+  }, [idXa]);
+
+  useEffect(() => {
+    if (nameXa == null) {
+      setNameXa("");
+    }
+    if (nameHuyen == null) {
+      setNameHuyen("");
+    }
+    if (nameTinh == null) {
+      setNameTinh("");
+    }
+    // console.log(diachi + " " + nameXa+ " "+ nameHuyen + " " +nameTinh)
+    setSearch(diachi + " " + nameXa + " " + nameHuyen + " " + nameTinh);
+  }, [nameTinh, nameHuyen, nameXa, diachi]);
+
+  const handleCreatePlace = (e) => {
+    e.preventDefault();
+    const body = {
+      name: name,
+      diachi: search,
+      image: image+ "," + image1 + "," + image2,
+      thongtinthem: thongtinthem,
+      status: status,
+    };
+    placeAPI
+      .createPlace(body)
+      .then((res) => {
+        // console.log(res);
+        Router.replace("/place/getAllPlace");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  return (
+    <div className="profiles">
+      <div className="container">
+        <h1 className="title">Thêm địa điểm mới</h1>
+
+        <div className="profile-gird-name">
+          <label htmlFor="name" className="profile-textlabel">
+            Tên Phòng Tập
+          </label>
+          <br />
+          <input
+            id="name"
+            type="text"
+            className="profile-input"
+            name="name"
+            onChange={handleChangePlace}
+          />
+
+          <label htmlFor="name" className="profile-textlabel">
+            Địa chỉ
+          </label>
+          <br />
+
+          <div className="search-by-place">
+            <div className="place-tinh">
+              <select
+                name="tinh"
+                className="checkin-select-place"
+                onChange={handleChangeTinh}
+              >
+                <option selected disabled>
+                  Chọn 1 Tỉnh/Thành Phố
+                </option>
+                {tinh.map((tinh) => (
+                  <option key={tinh.province_id} value={tinh.province_id}>
+                    {tinh.province_name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="place-huyen">
+              <select
+                name="huyen"
+                className="checkin-select-place"
+                onChange={handleChangeHuyen}
+              >
+                <option selected disabled>
+                  Chọn 1 Huyện
+                </option>
+                {huyen.map((huyen) => (
+                  <option key={huyen.district_id} value={huyen.district_id}>
+                    {huyen.district_name}
+                  </option>
+                ))}
+              </select>
+
+              <div className="place-xa">
+                <select
+                  name="xa"
+                  className="checkin-select-place"
+                  onChange={handleChangeXa}
+                >
+                  <option selected disabled>
+                    Chọn 1 Xã
+                  </option>
+                  {xa.map((xa) => (
+                    <option key={xa.ward_id} value={xa.ward_id}>
+                      {xa.ward_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <input
+            id="name"
+            type="text"
+            className="profile-input"
+            name="diachi"
+            onChange={handleChangePlace}
+          />
+
+          <label htmlFor="name" className="profile-textlabel">
+            Image
+          </label>
+          <br />
+          <input
+            id="name"
+            type="file"
+            className="profile-input"
+            name="image"
+            onChange={handleChangeImage}
+          />
+          <Image style={{ width: "50%" }} src={image} alt="loading..."></Image>
+          <br />
+          <br />
+          <input
+            id="name"
+            type="file"
+            className="profile-input"
+            name="image"
+            onChange={handleChangeImage1}
+          />
+          <Image style={{ width: "50%" }} src={image1} alt="loading..."></Image>
+          <br />
+          <input
+            id="name"
+            type="file"
+            className="profile-input"
+            name="image"
+            onChange={handleChangeImage2}
+          />
+          <Image style={{ width: "50%" }} src={image2} alt="loading..."></Image>
+          <br />
+
+          <label htmlFor="name" className="profile-textlabel">
+            Thông tin thêm
+          </label>
+          <br />
+          <textarea
+            id="name"
+            className="profile-input"
+            name="thongtinthem"
+            onChange={handleChangePlace}
+          ></textarea>
+          <label htmlFor="name" className="profile-textlabel">
+            Status
+          </label>
+          <Form.Check
+            aria-label="option 1"
+            name="status"
+            onClick={handleChangeStatus}
+          />
+        </div>
+        <div className="button-container">
+          <button className="profile-button" onClick={handleCreatePlace}>
+            Tạo thông tin
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CreatePlace;

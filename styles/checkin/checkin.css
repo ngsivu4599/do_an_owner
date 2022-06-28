@@ -1,0 +1,23 @@
+.checkin {
+    width: 80%;
+    text-align: center;
+}
+
+.checkin-select {
+    width: 100%;
+}
+
+select.checkin-select-place {
+    width: 100%;
+    height: 45px;
+    /* margin-top: 5%; */
+    margin-bottom: 5%;
+}
+
+h3.checkin-h3 {
+    margin-bottom: 5%;
+}
+
+.checkin-submit-place {
+    margin-top: 5%;
+}

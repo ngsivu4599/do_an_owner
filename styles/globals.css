@@ -1,0 +1,50 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img.admin-img {
+    width: 200px;
+}
+
+
+/* Login */
+
+@import url("./login/login.css");
+
+/* Layout */
+
+@import url("./layout/layout.css");
+
+/* Profiles */
+
+@import url("./profiles/profiles.css");
+
+/* Pt */
+
+@import url("./pt/pt.css");
+
+/* Place */
+
+@import url("./place/place.css");
+
+/* Schedule */
+
+@import url("./schedule/schedule.css");
+
+/* Check In */
+
+@import url("./checkin/checkin.css");
