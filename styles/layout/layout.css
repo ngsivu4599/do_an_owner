@@ -73,18 +73,18 @@ ol.nav-list li.nav-list-item {
     min-height: 40px;
 }
 
-ol.nav-list li.nav-list-item a.nav-list-item-link:hover,
-a.nav-list-item-link:active,
-a.nav-list-item-link:visited,
+ol.nav-list li.nav-list-item span.nav-list-item-link:hover,
+span.nav-list-item-link:active,
+span.nav-list-item-link:visited,
 a.is-selected {
     color: #fff;
 }
 
-ol.nav-list li.nav-list-item a.nav-list-item-link.is-selected {
+ol.nav-list li.nav-list-item span.nav-list-item-link.is-selected {
     background-color: #454e57;
 }
 
-ol.nav-list li.nav-list-item a.nav-list-item-link {
+ol.nav-list li.nav-list-item span.nav-list-item-link {
     display: flex;
     padding: 0 10px 0 20px;
     height: 40px;
@@ -94,11 +94,11 @@ ol.nav-list li.nav-list-item a.nav-list-item-link {
     color: #c3cfd8;
 }
 
-ol.nav-list li.nav-list-item a.nav-list-item-link i.fa {
+ol.nav-list li.nav-list-item span.nav-list-item-link i.fa {
     margin-right: 16px;
 }
 
-ol.nav-list li.nav-list-item a.nav-list-item-link .nav-list-item-title {
+ol.nav-list li.nav-list-item span.nav-list-item-link .nav-list-item-title {
     flex-grow: 1;
     transition: transform 200ms ease, opacity 200ms ease
 }

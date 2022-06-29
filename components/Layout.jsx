@@ -28,158 +28,54 @@ function Layout(props) {
               <li className="nav-list-item">
                 <span
                   className={
-                    Router.pathname.includes("dashboard")
+                    Router.pathname.includes("create-apartment")
                       ? "nav-list-item-link is-selected"
                       : "nav-list-item-link"
                   }
-                  onClick={handleRouterLink("spa")}
+                  onClick={handleRouterLink("create-apartment")}
                 >
-                  Dashboard
+                  Thêm phòng trọ
                 </span>
               </li>
+
               <li className="nav-list-item">
-                <Link
-                  href="/userandcoin"
+                <span
                   className={
                     Router.pathname.includes("userandcoin")
                       ? "nav-list-item-link is-selected"
                       : "nav-list-item-link"
                   }
+                  onClick={handleRouterLink("userandcoin")}
                 >
                   Quản lý user và coin
-                </Link>
+                </span>
               </li>
               <li className="nav-list-item">
-                <Link
-                  href="/place"
+                <span
                   className={
                     Router.pathname.includes("place")
                       ? "nav-list-item-link is-selected"
                       : "nav-list-item-link"
                   }
+                  onClick={handleRouterLink("listApartment")}
                   id="nav-item-orders"
                 >
-                  Place
-                </Link>
-              </li>
-              {/* <li className="nav-list-item" >
-                <Link
-                  href="/pt"
-                 className={Router.pathname === '/userandcoin' ? 'nav-list-item-link is-selected' : 'nav-list-item-link'}
-                  id="nav-item-orders"
-                >
-                  PT
-                </Link>
-              </li> */}
-              <li className="nav-list-item">
-                <Link
-                  href="/course"
-                  className={
-                    Router.pathname.includes("course")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Course
-                </Link>
-              </li>
-              {/* <li className="nav-list-item" >
-                <Link
-                  href="/courseOnline"
-                 className={Router.pathname === '/userandcoin' ? 'nav-list-item-link is-selected' : 'nav-list-item-link'}
-                  id="nav-item-orders"
-                >
-                  Course Online
-                </Link>
-              </li> */}
-              <li className="nav-list-item">
-                <Link
-                  href="/schedule"
-                  className={
-                    Router.pathname.includes("schedule")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Schedule
-                </Link>
+                  Danh sách phòng trọ
+                </span>
               </li>
               <li className="nav-list-item">
-                <Link
-                  href="/online"
-                  className={
-                    Router.pathname.includes("online")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Khóa học online
-                </Link>
-              </li>
-              <li className="nav-list-item">
-                <Link
-                  href="/spa"
-                  className={
-                    Router.pathname.includes("spa")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Chăm sóc sức khỏe
-                </Link>
-              </li>
-              <li className="nav-list-item">
-                <Link
-                  href="/serviceSpa"
+                <span
                   className={
                     Router.pathname.includes("serviceSpa")
                       ? "nav-list-item-link is-selected"
                       : "nav-list-item-link"
                   }
+                  // onClick={handleRouterLink("serviceSpa")}
                   id="nav-item-orders"
                 >
                   Dịch vụ
-                </Link>
+                </span>
               </li>
-              <li className="nav-list-item">
-                <Link
-                  href="/sport"
-                  className={
-                    Router.pathname.includes("sport")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Thể thao giải trí
-                </Link>
-              </li>
-              <li className="nav-list-item">
-                <Link
-                  href="/serviceSport"
-                  className={
-                    Router.pathname.includes("serviceSport")
-                      ? "nav-list-item-link is-selected"
-                      : "nav-list-item-link"
-                  }
-                  id="nav-item-orders"
-                >
-                  Dịch vụ giải trí
-                </Link>
-              </li>
-              {/* <li className="nav-list-item">
-                <Link
-                  href="/checkin"
-                 className={Router.pathname === '/userandcoin' ? 'nav-list-item-link is-selected' : 'nav-list-item-link'}
-                  id="nav-item-orders"
-                >
-                  Check In
-                </Link>
-              </li> */}
             </ol>
           </div>
         </div>

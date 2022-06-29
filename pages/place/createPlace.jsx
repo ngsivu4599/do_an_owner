@@ -97,7 +97,7 @@ const CreatePlace = () => {
   }, []);
 
   const handleChangeTinh = (e) => {
-    // console.log(e.target.value)
+    console.log(e.target.value);
     setIdTinh(e.target.value);
   };
 
@@ -112,7 +112,7 @@ const CreatePlace = () => {
     searchAPI
       .getTinhById(idTinh)
       .then((res) => {
-        // console.log(res)
+        console.log(res);
         setNameTinh(res.data.name);
       })
       .catch((err) => console.log(err));
@@ -172,7 +172,7 @@ const CreatePlace = () => {
     const body = {
       name: name,
       diachi: search,
-      image: image+ "," + image1 + "," + image2,
+      image: image + "," + image1 + "," + image2,
       thongtinthem: thongtinthem,
       status: status,
     };

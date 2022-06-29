@@ -1,40 +1,42 @@
 {
-    "name": "thegioififness",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start -p $PORT",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "@material-ui/core": "^4.11.4",
-        "@material-ui/icons": "^4.11.2",
-        "@zeit/next-css": "^1.0.1",
-        "axios": "^0.21.1",
-        "bcrypt": "^5.0.1",
-        "bootstrap": "^4.6.0",
-        "bootstrap-icons": "^1.5.0",
-        "js-cookie": "^2.2.1",
-        "jsonwebtoken": "^8.5.1",
-        "lodash": "^4.17.21",
-        "mongoose": "^5.13.2",
-        "next": "^11.0.1",
-        "next-i18next": "^11.0.0",
-        "postcss": "^8.3.5",
-        "react": "^17.0.2",
-        "react-bootstrap": "^1.6.1",
-        "react-bootstrap-icons": "^1.5.0",
-        "react-datepicker": "^4.1.1",
-        "react-dom": "^17.0.2",
-        "react-icons": "^4.2.0",
-        "react-router-dom": "^6.0.0",
-        "react-toastify": "^9.0.1",
-        "webpack": "^5.44.0"
-    },
-    "devDependencies": {
-        "eslint": "7.30.0",
-        "eslint-config-next": "11.0.1"
-    }
+  "name": "doan_vuNS",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^4.21.4",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.5.0",
+    "formik": "^2.2.9",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.2",
+    "next": "^11.0.1",
+    "next-i18next": "^11.0.0",
+    "postcss": "^8.3.5",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-bootstrap-icons": "^1.5.0",
+    "react-datepicker": "^4.1.1",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^6.0.0",
+    "react-toastify": "^9.0.1",
+    "webpack": "^5.44.0"
+  },
+  "devDependencies": {
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1"
+  }
 }

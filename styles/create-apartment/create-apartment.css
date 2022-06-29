@@ -1,0 +1,15 @@
+.form-create .ant-form-item-control-input-content .ant-btn{
+    margin-right: 10px;
+}  
+
+.form-create .ant-form-item-control-input-content .ant-btn-primary{
+    background-color: orangered;
+    border: unset;
+    margin-right: 10px;
+}  
+
+
+
+.ant-input-textarea-show-count.ant-input-textarea-in-form-item::after{
+    margin-bottom: 0px;
+}
